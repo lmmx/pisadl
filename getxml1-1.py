@@ -1,5 +1,7 @@
+#!/usr/bin/python
+
 import urllib2
 import re
-from datetime import datetime #this allows you to drop the leading `datetime.` and makes slightly more concise cf. just import datetime
+from datetime import datetime
 with open("interfaces1-1.xml","r+") as outputfile:
-	execfile('download.py')
+	execfile("download.py")
