@@ -15,7 +15,11 @@ with open("interfaces.txt") as urllist:
 		for line in urltup:
 			if urltup.index(line)+1 >= startline and urltup.index(line)+1 <= subsectendline:
 				url = line.rstrip()
-				s = urllib2.urlopen(url)
+				try:
+					s = urllib2.urlopen(url)
+				except urllib2.HTTPError, err:
+					from subprocess import call
+					call(["xdg-open","Pause-Mario.mp3"])
 				contents = s.read()
 				outputfile.write(contents)
 				now = datetime.now()

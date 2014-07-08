@@ -6,5 +6,5 @@ for filename in os.listdir('.'):
 			sect = spl[0][-1:]
 			subsect = spl[1].split('.')[0]
 			interfacefile = 'interfaces'+sect+'-'+subsect+'.xml'
-			scriptout = '#!/usr/bin/python\n\nimport urllib2\nimport re\nfrom datetime import datetime\nwith open("'+interfacefile+'","r+") as outputfile:\n\texecfile("download.py")\n'
+			scriptout = '#!/usr/bin/python\n\ntry:\n\timport urllib2\n\timport re\n\tfrom datetime import datetime\n\twith open("'+interfacefile+'","r+") as outputfile:\n\t\texecfile("download.py")\nexcept KeyboardInterrupt:\n\tpass\n'
 			outputfile.write(scriptout)
