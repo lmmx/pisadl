@@ -10,7 +10,7 @@ with open("interfaces.txt") as urllist:
                 print str(now.hour)+":"+str(now.minute)+" - Starting at line "+str(startline)
                 urltup = tuple(urllist)
                 for line in urltup:
-                        if urltup.index(line)+1 >= startline:
+                        if urltup.index(line)+1 >= startline and urltup.index(line)+1 < startline + 50:
                                 url = line.rstrip()
                                 s = urllib2.urlopen(url)
                                 contents = s.read()
