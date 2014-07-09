@@ -21,7 +21,7 @@ with open("interfaces.txt") as urllist:
 					import sys
 					from subprocess import call
 					if sys.platform == 'linux2':
-						call(["mpg123","Pause-Mario.mp3"])
+						call(["mpg123","-q","Pause-Mario.mp3"])
 					elif sys.platform == 'darwin':
 						call(["afplay","Pause-Mario.mp3"])
 					break
@@ -33,7 +33,7 @@ with open("interfaces.txt") as urllist:
 				import sys
 				from subprocess import call
 				if sys.platform == 'linux2':
-					call(["mpg123","Coin-Mario.mp3"])
+					call(["mpg123","-q","Coin-Mario.mp3"])
 				elif sys.platform == 'darwin':
 					call(["afplay","Coin-Mario.mp3"])
 
