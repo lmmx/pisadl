@@ -18,11 +18,24 @@ with open("interfaces.txt") as urllist:
 				try:
 					s = urllib2.urlopen(url)
 				except urllib2.HTTPError, err:
+					import sys
 					from subprocess import call
-					call(["xdg-open","Pause-Mario.mp3"])
+					if sys.platform == 'linux2':
+						call(["mpg123","Pause-Mario.mp3"])
+					elif sys.platform == 'darwin':
+						call(["afplay","Pause-Mario.mp3"])
+					break
 				contents = s.read()
 				outputfile.write(contents)
 				now = datetime.now()
 				print str(now.hour)+":"+str(now.minute)+" - "+str(urltup.index(line)+1)+" Downloaded "+url.split('?')[1]
+			elif urltup.index(line) == subsectendline:
+				import sys
+				from subprocess import call
+				if sys.platform == 'linux2':
+					call(["mpg123","Coin-Mario.mp3"])
+				elif sys.platform == 'darwin':
+					call(["afplay","Coin-Mario.mp3"])
+
 	else:
 		print "All interfaces downloaded."
