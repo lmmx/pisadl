@@ -18,8 +18,12 @@ with open("interfaces.txt") as urllist:
 				try:
 					s = urllib2.urlopen(url)
 				except urllib2.HTTPError, err:
+					import sys
 					from subprocess import call
-					call(["xdg-open","Pause-Mario.mp3"])
+					if sys.platform == 'linux2':
+						call(["mpg123","Pause-Mario.mp3"])
+					elif sys.platform == 'darwin':
+						call(["afplay","Pause-Mario.mp3"])
 					break
 				contents = s.read()
 				outputfile.write(contents)
