@@ -20,6 +20,7 @@ with open("interfaces.txt") as urllist:
 				except urllib2.HTTPError, err:
 					from subprocess import call
 					call(["xdg-open","Pause-Mario.mp3"])
+					break
 				contents = s.read()
 				outputfile.write(contents)
 				now = datetime.now()
